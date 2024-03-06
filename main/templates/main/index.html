@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1>Главная страница</h1>
+
+    <div id="light_sensor">
+        {% include 'main/preview_sensors/light_sensor.html' %}
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+    <script>
+        function update_light() {
+            $.ajax({
+                url: "{% url 'light_sensor' %}",
+                success: function (data, status, xhttp) {
+                    $("#light_sensor").html(data)
+                }
+            })
+        }
+        setInterval(update_light, 1000);
+    </script>
+{% endblock %}
+

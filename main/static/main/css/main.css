@@ -1,0 +1,20 @@
+body {
+    /*background: #00FF00;*/
+}
+
+main {
+  /*  display: block;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  /*width: 40%;*/
+}
+
+.center_content {
+    margin: 0 auto;
+}
+
+.card_image {
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+}
