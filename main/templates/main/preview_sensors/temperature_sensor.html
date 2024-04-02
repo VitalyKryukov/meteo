@@ -1,0 +1,21 @@
+{% load static %}
+<div class="card mb-3 center_content" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{% static 'main/svg/thermometer-sun.svg' %}" class="img-fluid rounded-start card_image"
+                 alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Датчик BME280</h5>
+                <p class="card-text">Датчик предназначен для измерения атмосферного давления, температуры и влажности.</p>
+                <p id="p_light">Температура: {{ temperature_sensor.temperature }} °C</p>
+                <p id="p_light">Влажность: {{ temperature_sensor.humidity }} %</p>
+                <p id="p_light">Давление: {{ temperature_sensor.pressure }} hPa</p>
+                <p class="card-text">
+                    <small class="text-body-secondary">Последнее обновление 1 секунду назад</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

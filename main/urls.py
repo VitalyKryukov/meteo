@@ -7,4 +7,5 @@ urlpatterns = [
     path('dashboard', views.dashboard, name='dashboard'),
 
     path('light_sensor', views.light_sensor, name='light_sensor'),
+    path('temperature_sensor', views.temperature_sensor, name='temperature_sensor'),
 ]

@@ -10,6 +10,10 @@
         {% include 'main/preview_sensors/light_sensor.html' %}
     </div>
 
+    <div id="temperature_sensor">
+        {% include 'main/preview_sensors/temperature_sensor.html' %}
+    </div>
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
     <script>
@@ -22,6 +26,16 @@
             })
         }
         setInterval(update_light, 1000);
+
+        function update_temperature() {
+            $.ajax({
+                url: "{% url 'temperature_sensor' %}",
+                success: function (data, status, xhttp) {
+                    $("#temperature_sensor").html(data)
+                }
+            })
+        }
+        setInterval(update_temperature, 1000);
     </script>
 {% endblock %}
 

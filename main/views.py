@@ -19,5 +19,12 @@ def light_sensor(request):
     return render(request, 'main/preview_sensors/light_sensor.html', values)
 
 
+def temperature_sensor(request):
+    values = {
+        'temperature_sensor': sensor_manager.temperature_sensor
+    }
+    return render(request, 'main/preview_sensors/temperature_sensor.html', values)
+
+
 def dashboard(request):
     return render(request, 'main/dashboard.html')
