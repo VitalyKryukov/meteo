@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from main.models import Temperatures
 from main.sensors.sensor_manager import SensorsManager
 
 sensor_manager = SensorsManager()
@@ -27,4 +29,8 @@ def temperature_sensor(request):
 
 
 def dashboard(request):
-    return render(request, 'main/dashboard.html')
+    temperatures = Temperatures.objects.all()
+    values = {
+        'temperatures': temperatures
+    }
+    return render(request, 'main/dashboard.html', values)
