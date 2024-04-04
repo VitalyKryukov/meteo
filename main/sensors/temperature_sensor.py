@@ -9,15 +9,15 @@ class TemperatureSensor:
 
     def temperature(self):
         data_all = bme280.read_all()
-        print("%7.2f C" % data_all.temperature)
+        #print("%7.2f C" % data_all.temperature)
         return round(data_all.temperature, 2)
 
     def humidity(self):
         data_all = bme280.read_all()
-        print("%7.2f %%" % data_all.humidity)
+        #print("%7.2f %%" % data_all.humidity)
         return round(data_all.humidity, 2)
 
     def pressure(self):
         data_all = bme280.read_all()
-        print("%7.2f hPa" % data_all.pressure)
+        #print("%7.2f hPa" % data_all.pressure)
         return round(data_all.pressure, 2)

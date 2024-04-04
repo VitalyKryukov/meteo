@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from main.models import Temperatures
+from main.models import Temperatures, Humidities, Pressures, Lights
 from main.sensors.sensor_manager import SensorsManager
 
 sensor_manager = SensorsManager()
@@ -33,4 +33,36 @@ def dashboard(request):
     values = {
         'temperatures': temperatures
     }
-    return render(request, 'main/dashboard.html', values)
+    return render(request, 'main/dashboard/dashboard_layout.html', values)
+
+
+def temperatures_chart(request):
+    temperatures = Temperatures.objects.all()
+    values = {
+        'temperatures': temperatures
+    }
+    return render(request, 'main/dashboard/temperatures.html', values)
+
+
+def humidities_chart(request):
+    humidities = Humidities.objects.all()
+    values = {
+        'humidities': humidities
+    }
+    return render(request, 'main/dashboard/humidities.html', values)
+
+
+def pressures_chart(request):
+    pressures = Pressures.objects.all()
+    values = {
+        'pressures': pressures
+    }
+    return render(request, 'main/dashboard/pressures.html', values)
+
+
+def lights_chart(request):
+    lights = Lights.objects.all()
+    values = {
+        'lights': lights
+    }
+    return render(request, 'main/dashboard/lights.html', values)
