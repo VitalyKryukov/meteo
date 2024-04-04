@@ -15,12 +15,12 @@
                     <svg class="bi">
                         <use xlink:href="#calendar3"/>
                     </svg>
-                    This week
+                    За всё время
                 </button>
             </div>
         </div>
 
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100" id="info_chart" width="900" height="380"></canvas>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
@@ -29,15 +29,12 @@
 
     <script>
         (() => {
-            'use strict'
+            const ctx = document.getElementById('info_chart')
 
-            // Graphs
-            const ctx = document.getElementById('myChart')
-            // eslint-disable-next-line no-unused-vars
-            const myChart = new Chart(ctx, {
+            const infoChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [{% for item in temperatures %}"{{ item.datetime }}",{% endfor %}],
+                    labels: [{% for item in temperatures %}"{{ item.time }}",{% endfor %}],
                     datasets: [{
                         data: [{% for item in temperatures %}{{ item.value }}, {% endfor %}],
                         lineTension: 0,
@@ -58,7 +55,6 @@
                     }
                 }
             })
-            myChart.update()
         })()
     </script>
 {% endblock %}

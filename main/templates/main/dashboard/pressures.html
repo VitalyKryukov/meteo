@@ -11,7 +11,7 @@
                     <svg class="bi">
                         <use xlink:href="#calendar3"/>
                     </svg>
-                    This week
+                    За всё время
                 </button>
             </div>
         </div>
@@ -29,7 +29,7 @@
             const infoChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [{% for item in pressures %}"{{ item.datetime }}",{% endfor %}],
+                    labels: [{% for item in pressures %}"{{ item.time }}",{% endfor %}],
                     datasets: [{
                         data: [{% for item in pressures %}{{ item.value }}, {% endfor %}],
                         lineTension: 0,
