@@ -6,7 +6,7 @@ from main.sensors.sensor_manager import SensorsManager
 sensor_manager = SensorsManager()
 
 
-# Create your views here.
+# Главная страница
 def index(request):
     values = {
         'light_sensor': sensor_manager.light_sensor
@@ -14,6 +14,7 @@ def index(request):
     return render(request, 'main/index.html', values)
 
 
+# Предварительный просмотр значения датчика освещенности
 def light_sensor(request):
     values = {
         'light_sensor': sensor_manager.light_sensor
@@ -21,6 +22,7 @@ def light_sensor(request):
     return render(request, 'main/preview_sensors/light_sensor.html', values)
 
 
+# Предварительный просмотр значения датчика температуры
 def temperature_sensor(request):
     values = {
         'temperature_sensor': sensor_manager.temperature_sensor
@@ -28,14 +30,7 @@ def temperature_sensor(request):
     return render(request, 'main/preview_sensors/temperature_sensor.html', values)
 
 
-def dashboard(request):
-    temperatures = Temperatures.objects.all()
-    values = {
-        'temperatures': temperatures
-    }
-    return render(request, 'main/dashboard/dashboard_layout.html', values)
-
-
+# Статистика по температуре
 def temperatures_chart(request):
     temperatures = Temperatures.objects.all()
     values = {
@@ -44,6 +39,7 @@ def temperatures_chart(request):
     return render(request, 'main/dashboard/temperatures.html', values)
 
 
+# Статистика по влажности
 def humidities_chart(request):
     humidities = Humidities.objects.all()
     values = {
@@ -52,6 +48,7 @@ def humidities_chart(request):
     return render(request, 'main/dashboard/humidities.html', values)
 
 
+# Статистика по давлению
 def pressures_chart(request):
     pressures = Pressures.objects.all()
     values = {
@@ -60,6 +57,7 @@ def pressures_chart(request):
     return render(request, 'main/dashboard/pressures.html', values)
 
 
+# Статистика по освещенности
 def lights_chart(request):
     lights = Lights.objects.all()
     values = {
